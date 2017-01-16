@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  devise_for :users
+  root 'pages#index'
   get '/flosses', to: 'flosses#index', as: 'flosses'
-  
 end
