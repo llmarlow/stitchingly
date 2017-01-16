@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @quantity.user %>
+</p>
+
+<p>
+  <strong>Floss:</strong>
+  <%= @quantity.floss %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @quantity.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_quantity_path(@quantity) %> |
+<%= link_to 'Back', quantities_path %>

@@ -11,7 +11,11 @@
       <% @flosses.each do |floss| %>
       <tr>
           <td><strong><%= floss.colour %></strong></td>
-          <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+          <% if Quantity.where(user: current_user, floss: floss).exists? %>
+            <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span><%= Quantity.where(user: current_user, floss: floss).first.quantity %></a> <a href="#" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-remove"></span>+</a></td>
+          <% else %>
+            <td><%= link_to "Add", quantities_path(:user_id => current_user.id, :floss_id => floss.id), :method => :post %></td>
+          <% end %>
       </tr>   
       <% end %>         
     </table>
