@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
   describe "pages#home action" do
-    it "should successfully show the page" do
+    it "responds successfully with an HTTP 200 status code" do
       get :home
-      expect(response).to have_http_status(:success)
+      expect(response).to be_success
+      expect(response).to have_http_status(200)
     end
   end
 end
