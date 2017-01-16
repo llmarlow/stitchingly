@@ -1,0 +1,2 @@
+class Floss < ApplicationRecord
+end
