@@ -1,7 +1,7 @@
 FactoryGirl.define do
-  factory :quantity do
+  factory :user_floss do
     user nil
     floss nil
-    quantity 1
+    floss_quantity 1
   end
 end

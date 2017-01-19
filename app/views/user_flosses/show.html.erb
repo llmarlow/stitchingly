@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @user_floss.user %>
+</p>
+
+<p>
+  <strong>Floss:</strong>
+  <%= @user_floss.floss %>
+</p>
+
+<p>
+  <strong>Floss quantity:</strong>
+  <%= @user_floss.floss_quantity %>
+</p>
+
+<%= link_to 'Edit', edit_user_floss_path(@user_floss) %> |
+<%= link_to 'Back', user_flosses_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Flosses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Floss</th>
+      <th>Floss quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_flosses.each do |user_floss| %>
+      <tr>
+        <td><%= user_floss.user %></td>
+        <td><%= user_floss.floss %></td>
+        <td><%= user_floss.floss_quantity %></td>
+        <td><%= link_to 'Show', user_floss %></td>
+        <td><%= link_to 'Edit', edit_user_floss_path(user_floss) %></td>
+        <td><%= link_to 'Destroy', user_floss, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Floss', new_user_floss_path %>

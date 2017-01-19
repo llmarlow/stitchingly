@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :quantities
+  resources :user_flosses
+  resources :flosses 
   devise_for :users
   root 'pages#home'
-  get '/flosses', to: 'flosses#index', as: 'flosses'
+  get '/test', to: 'flosses#test', as: 'test'
 end
