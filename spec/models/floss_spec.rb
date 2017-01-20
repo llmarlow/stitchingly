@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Floss, type: :model do
-    describe Floss do
+  describe Floss do
     it "has a valid factory" do
       FactoryGirl.create(:floss).should be_valid
     end

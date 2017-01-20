@@ -10,25 +10,11 @@
           </tr>
         </thead>
         <% @flosses.each do |floss| %>
-        <tr>
-          <td><strong><%= floss.colour %></strong></td>
-          <% if floss.users.include? current_user %>
-            <td class="text-center">
-              <% @quantity = floss.user_flosses.where(floss: floss).first %>
-              <%= link_to '<i class="fa fa-minus"></i>'.html_safe, user_floss_path(@quantity, :user_floss => { :floss_quantity => @quantity.floss_quantity - 1}), :method => :put, class: "btn btn-danger btn-xs" %>
-              <%= floss.user_flosses.first.floss_quantity %>
-              <%= link_to '<i class="fa fa-plus"></i>'.html_safe, user_floss_path(@quantity, :user_floss => { :floss_quantity => @quantity.floss_quantity + 1}), :method => :put, class: "btn btn-success btn-xs" %>
-              </td>
-            <% else %>
-              <td class="text-center">
-                <%= link_to '<i class="fa fa-plus"></i>'.html_safe, user_flosses_path(:user_floss => {:user_id => current_user.id, :floss_id => floss.id, :floss_quantity => 1}), :method => :post, class: "btn btn-success btn-xs" %>
-              </td>
-            <% end %>
-        </tr>   
-        <% end %>         
+          <%= render "floss" %> 
+        <% end %>  
       </table>
       <div class="text-center">
-        <%= will_paginate @flosses, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate @floss, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>

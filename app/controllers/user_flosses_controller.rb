@@ -43,6 +43,7 @@ class UserFlossesController < ApplicationController
       if @user_floss.update(user_floss_params)
         format.html { redirect_to flosses_path, notice: 'Quantity was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_floss }
+        format.js   { render :layout => false }
       else
         format.html { redirect_to flosses_path, alert: 'Quantity was not successfully updated.' }
         format.json { render json: @user_floss.errors, status: :unprocessable_entity }
@@ -55,7 +56,7 @@ class UserFlossesController < ApplicationController
   def destroy
     @user_floss.destroy
     respond_to do |format|
-      format.html { redirect_to user_flosses_url, notice: 'User floss was successfully destroyed.' }
+      format.html { redirect_to flosses_path, notice: 'User floss was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
