@@ -4,5 +4,6 @@ FactoryGirl.define do
     notes "MyText"
     progress 1
     status "MyString"
+    association :user, :factory => :user
   end
 end

@@ -1,0 +1,18 @@
+<div class="row bootstrap snippets" id="real-estates-columns">
+  <% @projects.each do |project| %>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="panel">
+        <div class="panel-body">
+            <%= link_to image_tag('image.jpg', class: "img-responsive"), user_project_path(project.user, project) %>
+            <div class="title-realestates-columns">
+              <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
+              <hr>
+              <p><%= project.notes %></p>
+            </div>
+                <%= link_to project.user.email, user_projects_path(project.user), class: "btn btn-primary" %>
+                <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
