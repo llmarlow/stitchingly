@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UserFloss, type: :model do
-  describe Floss do
+  describe UserFloss do
     it "has a valid factory" do
       FactoryGirl.create(:user_floss).should be_valid
     end
