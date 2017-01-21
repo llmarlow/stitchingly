@@ -16,7 +16,8 @@ RSpec.describe ProjectsController, type: :controller do
   let(:valid_session) { {} }
 
   before(:each) do
-    login_user
+    user = FactoryGirl.create(:user)
+    login_with create( :user )
   end
 
   describe "GET #index" do
