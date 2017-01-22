@@ -1,5 +1,5 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
-  <h1 class="text-center"><%= @project.name %><%= link_to "WIP", "#", class: "btn btn-primary pull-right" %></h1>
+  <h1 class="text-center"><%= @project.name %><%= link_to @project.status, "#", class: "btn btn-primary pull-right" %></h1>
   <div class="row">
     <div class="col-md-4">
       <%= image_tag("image.jpg", :class => "img-thumbnail") %>
@@ -57,7 +57,7 @@
           <h3 class="panel-title">Notes</h3>
         </div>
         <div class="panel-body">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. 
+          <%= @project.notes %>
         </div>
       </div>
     </div>

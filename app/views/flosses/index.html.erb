@@ -16,7 +16,7 @@
               <td class="text-center">
                 <% @quantity = floss.user_flosses.where(floss: floss).first %>
                 <% @user_floss_quantity = floss.user_flosses.first.floss_quantity %>
-                <%= link_to '<i class="fa fa-minus"></i>'.html_safe, user_floss_path(@quantity, :user_floss => { :floss_quantity => @quantity.floss_quantity - 1}), :method => :put, class: "btn btn-danger btn-xs", remote: true %>
+                <%= link_to '<i class="fa fa-minus"></i>'.html_safe, user_floss_path(@quantity, :user_floss => { :floss_quantity => @quantity.floss_quantity - 1}), :method => :put, class: "btn btn-danger btn-xs" %>
                   <%= @user_floss_quantity %>
                 <%= link_to '<i class="fa fa-plus"></i>'.html_safe, user_floss_path(@quantity, :user_floss => { :floss_quantity => @quantity.floss_quantity + 1}), :method => :put, class: "btn btn-success btn-xs" %>
               </td>
