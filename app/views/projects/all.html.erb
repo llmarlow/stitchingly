@@ -9,7 +9,7 @@
               <hr>
               <p><%= project.notes %></p>
             </div>
-                <%= link_to project.user.email, user_projects_path(project.user), class: "btn btn-primary" %>
+                <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %>
                 <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
           </div>
         </div>

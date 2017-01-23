@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121185215) do
+ActiveRecord::Schema.define(version: 20170123102431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,9 +26,15 @@ ActiveRecord::Schema.define(version: 20170121185215) do
     t.text     "notes"
     t.integer  "progress"
     t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.integer  "user_id"
+    t.string   "pattern_name"
+    t.string   "pattern_designer"
+    t.string   "fabric_brand"
+    t.string   "fabric_colour"
+    t.string   "fabric_count"
+    t.string   "thread_brand"
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
