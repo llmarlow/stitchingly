@@ -1,5 +1,6 @@
-<% if user_signed_in? %>
+<% if user_signed_in? && @user == current_user %>
   <%= link_to "New Project", new_user_project_path(current_user), class: "btn btn-success padding" %>
+<% end %>
   <h3 class="text-center">Sort By</h3>
   <table class="table table-bordered table-striped"> 
     <thead> 
@@ -11,7 +12,6 @@
       </tr> 
     </thead> 
   </table>
-<% end %>
 <div class="row bootstrap snippets" id="real-estates-columns">
   <% @projects.each do |project| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
