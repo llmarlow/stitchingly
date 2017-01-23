@@ -6,7 +6,9 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @user = User.find(params[:user_id])
-    @projects = @user.projects
+    @q = @user.projects.ransack(params[:q])
+    @projects = @q.result
+    
   end
 
   def all
