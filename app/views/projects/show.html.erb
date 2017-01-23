@@ -2,7 +2,7 @@
   <h1 class="text-center"><%= @project.name %><%= link_to @project.status, "#", class: "btn btn-primary pull-right" %></h1>
   <div class="row">
     <div class="col-md-4">
-      <%= image_tag("image.jpg", :class => "img-thumbnail") %>
+      <%= image_tag(@project.picture, :class => "img-thumbnail") %>
       </br>
       </br>
       <div class="panel panel-default">

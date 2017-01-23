@@ -17,7 +17,7 @@
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="panel">
         <div class="panel-body">
-            <%= link_to image_tag('image.jpg', class: "img-responsive"), user_project_path(project.user, project) %>
+            <%= link_to image_tag(project.picture, class: "img-responsive"), user_project_path(project.user, project) %>
             <div class="title-realestates-columns">
               <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
               <hr>
