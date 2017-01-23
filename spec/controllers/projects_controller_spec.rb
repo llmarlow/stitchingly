@@ -9,7 +9,7 @@ RSpec.describe ProjectsController, type: :controller do
 
   
   let(:valid_attributes) {
-    { "name" => "Name", "notes" => "Lots and lots and lots of notes", "progress" => 55, "status" => "WIP", "user_id" => @project_user.id }
+    { "name" => "Name", "notes" => "Lots and lots and lots of notes", "progress" => 55, "status" => "WIP", "user_id" => @project_user.id, "picture" => "picture" }
   }
 
   let(:invalid_attributes) {
