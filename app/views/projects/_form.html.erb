@@ -2,13 +2,14 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :notes %>
-    <%= f.input :progress %>
-    <%= f.input :status %>
+    <%= f.input :name, placeholder: 'Name of your project' %>
+    <%= f.input :notes, placeholder: 'Any notes about your project or changes you have made.' %>
+    <%= f.input :progress, placeholder: '% Complete' %>
+    <%= f.input :status, collection: ['Wishlist', 'Kitted','WIP', 'UFO', 'FFO', 'Finish'], prompt: "Select a Status" %>
   </div>
 
   <div class="form-actions">
     <%= f.button :submit, class: "btn btn-success padding" %>
+    <%= link_to 'Back', :back, class: "btn btn-default padding pull-right" %>
   </div>
 <% end %>
