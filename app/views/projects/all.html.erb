@@ -8,7 +8,11 @@
               <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
               <hr>
             </div>
-                <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %>
+                <% if project.user.username %>
+                  <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
+                <% else %>
+                  <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %>
+                <% end %>
                 <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
           </div>
         </div>
