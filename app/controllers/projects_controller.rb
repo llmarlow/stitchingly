@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_user, except: [:new, :all]
+  before_action :set_user, except: [:new, :all, :dashboard]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /projects
@@ -9,6 +9,11 @@ class ProjectsController < ApplicationController
     @q = @user.projects.ransack(params[:q])
     @projects = @q.result
     
+  end
+
+  def dashboard
+    @user = current_user
+    @projects = @user.projects.all
   end
 
   def all
