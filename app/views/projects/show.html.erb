@@ -29,6 +29,22 @@
       <% end %>
       <table class="table">
         <tr>
+          <td>Start Date:</td>
+            <% if @project.start_date %>
+          <td><%= @project.start_date.strftime("%b %d, %Y") %></td>
+          <% else %>
+            <td>Not Started</td>
+          <% end %>
+        </tr>  
+        <tr>
+          <td>Finish Date:</td>
+          <% if @project.finish_date %>
+            <td><%= @project.finish_date.strftime("%b %d, %Y") %></td>
+          <% else %>
+            <td>Not Finished</td>
+          <% end %>
+        </tr>  
+        <tr>
           <td>Pattern Name:</td>
           <td><%= @project.pattern_name %></td>
         </tr>  

@@ -7,6 +7,8 @@
     <%= f.input :name, placeholder: 'Name of your project' %>
     <%= f.input :picture %>
     <%= f.input :status, collection: ['Wishlist', 'Kitted','WIP', 'UFO', 'FFO', 'Finish'], prompt: "Select a Status" %>
+    <%= f.input :start_date, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
+    <%= f.input :finish_date, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
     <%= f.input :progress, placeholder: '% Complete' %>
     <%= f.input :pattern_name %>
     <%= f.input :pattern_designer %>

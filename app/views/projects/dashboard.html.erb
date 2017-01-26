@@ -24,8 +24,17 @@
                 </div>
 
                 <div class="project-name pull-left">
-                  <div class="created"><strong><%= project.created_at.strftime("%b %d, %Y") %> - </strong></span></div>
-                  <div class="created">Last Updated 24/01/17</span></div>
+                  <div class="created"><strong>
+                  <% if project.start_date %>
+                  <%= project.start_date.strftime("%b %d, %Y") %> -
+                  <% else %>
+                    Not Started
+                  <% end %>
+                  <% if project.finish_date %>
+                    <%= project.finish_date.strftime("%b %d, %Y") %> 
+                  <% end %>
+                    </strong></span></div>
+                  <div class="created">Last Updated <%= project.updated_at.strftime("%b %d, %Y") %></span></div>
                 </div>
                 <div class="project-progress pull-left">
                   <span class="task-title"><span><%= project.progress %>% Complete</span></span>

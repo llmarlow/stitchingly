@@ -20,8 +20,17 @@
             <%= link_to image_tag(project.picture, class: "img-responsive"), user_project_path(project.user, project) %>
             <div class="title-realestates-columns">
               <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
+              <% if project.start_date %>
+                  <%= project.start_date.strftime("%b %d, %Y") %> -
+                  <% else %>
+                    Not Started
+                  <% end %>
+                  <% if project.finish_date %>
+                    <%= project.finish_date.strftime("%b %d, %Y") %> 
+                  <% end %>
               <hr>
             </div>
+
               <% if project.user.username && !project.user.username.empty? %>
                 <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
               <% else %>
