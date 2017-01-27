@@ -3,7 +3,7 @@ class Project < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :name, presence: true
   validates :status, presence: true
-  validates :name, uniqueness: true
+  validates :name, :uniqueness => {:scope=>:user_id}
   validates :user, presence: true
 
   def email_format

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   root 'pages#home'
+  get '/about', to: 'pages#about', as: 'about'
   devise_for :users 
   resources :user_flosses
   resources :flosses 
