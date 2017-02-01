@@ -27,7 +27,7 @@ class UserFlossesController < ApplicationController
     @user_floss = UserFloss.new(user_floss_params)
     respond_to do |format|
       if @user_floss.save
-        format.html { redirect_to flosses_path, notice: 'User floss was successfully created.' }
+        format.html { redirect_to :back, notice: 'User floss was successfully created.' }
         format.json { render :show, status: :created, location: @user_floss }
       else
         format.html { render :new }
@@ -41,15 +41,16 @@ class UserFlossesController < ApplicationController
   def update
     respond_to do |format|
       if @user_floss.update(user_floss_params)
-        format.html { redirect_to flosses_path, notice: 'Quantity was successfully updated.' }
+        format.html { redirect_to :back, notice: 'Quantity was successfully updated.' }
         format.json { render :show, status: :ok, location: @user_floss }
         format.js   { render :layout => false }
       else
-        format.html { redirect_to flosses_path, alert: 'Quantity was not successfully updated.' }
+        format.html { redirect_to :back, alert: 'Quantity was not successfully updated.' }
         format.json { render json: @user_floss.errors, status: :unprocessable_entity }
       end
     end
   end
+
 
   # DELETE /user_flosses/1
   # DELETE /user_flosses/1.json
