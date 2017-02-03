@@ -1,0 +1,19 @@
+<div class="row">
+<%= search_form_for @q, url: user_projects_path, :builder => SimpleForm::FormBuilder do |f| %>
+  <div class="col-md-3">
+    <%= f.input :name_or_pattern_name_cont, label: 'Project Name or Pattern Name' %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :fabric_colour_or_fabric_brand_cont, label: 'Fabric  Brand or Colour' %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :status_cont, label: 'Project Status' %>
+  </div>
+  <div class="col-md-3">
+    <%= f.input :thread_brand_cont, label: 'Thread Brand' %>
+  </div>
+</div>
+<div class="row test-center">
+  <%= f.button :submit, "Search", class: "btn btn-primary padding" %>
+</div>
+<% end %>

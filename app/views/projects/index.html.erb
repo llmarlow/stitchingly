@@ -1,17 +1,21 @@
+<div class="panel">
+<div class="row">
 <% if user_signed_in? && @user == current_user %>
   <%= link_to "New Project", new_user_project_path(current_user), class: "btn btn-success padding" %>
 <% end %>
-  <h3 class="text-center">Sort By</h3>
-  <table class="table table-bordered table-striped"> 
-    <thead> 
-      <tr> 
-        <th><%= sort_link(@q, :name, 'Project Name', default_order: :desc) %></th> 
-        <th><%= sort_link(@q, :created_at, 'Date Created', default_order: :desc) %></th> 
-        <th><%= sort_link(@q, :status, 'Project Status', default_order: :desc) %></th> 
-        <th><%= sort_link(@q, :progress, 'Project Progress', default_order: :desc) %></th> 
-      </tr> 
-    </thead> 
-  </table>
+</div>
+<%= render 'searchform' %>
+<table class="table table-bordered table-striped"> 
+  <thead> 
+    <tr> 
+      <th><%= sort_link(@q, :name, 'Project Name', default_order: :desc) %></th> 
+      <th><%= sort_link(@q, :created_at, 'Date Created', default_order: :desc) %></th> 
+      <th><%= sort_link(@q, :status, 'Project Status', default_order: :desc) %></th> 
+      <th><%= sort_link(@q, :progress, 'Project Progress', default_order: :desc) %></th> 
+    </tr> 
+  </thead> 
+</table>
+</div>
 <div class="row bootstrap snippets" id="real-estates-columns">
   <% @projects.each do |project| %>
     <div class="col-md-4 col-sm-6 col-xs-12">

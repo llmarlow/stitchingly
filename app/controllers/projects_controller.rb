@@ -8,7 +8,6 @@ class ProjectsController < ApplicationController
     @user = User.find(params[:user_id])
     @q = @user.projects.ransack(params[:q])
     @projects = @q.result
-    
   end
 
   def dashboard

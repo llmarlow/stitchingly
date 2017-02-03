@@ -1,0 +1,30 @@
+<div class="row bootstrap snippets" id="real-estates-columns">
+  <% @projects.each do |project| %>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="panel">
+        <div class="panel-body">
+            <%= link_to image_tag(project.picture, class: "img-responsive"), user_project_path(project.user, project) %>
+            <div class="title-realestates-columns">
+              <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
+              <% if project.start_date %>
+                  <%= project.start_date.strftime("%b %d, %Y") %> -
+                  <% else %>
+                    Not Started
+                  <% end %>
+                  <% if project.finish_date %>
+                    <%= project.finish_date.strftime("%b %d, %Y") %> 
+                  <% end %>
+              <hr>
+            </div>
+
+              <% if project.user.username && !project.user.username.empty? %>
+                <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
+              <% else %>
+                <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %> 
+              <% end %>
+              <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
