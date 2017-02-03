@@ -16,7 +16,8 @@ class ProjectsController < ApplicationController
   end
 
   def all
-    @projects = Project.all.order(updated_at: :desc)
+    @q = Project.ransack(params[:q])
+    @projects = @q.result
   end
 
   # GET /projects/1

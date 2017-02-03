@@ -1,3 +1,24 @@
+<div class="booyah-box">
+  <div class="row">
+  <%= search_form_for @q, url: projects_path, :builder => SimpleForm::FormBuilder do |f| %>
+    <div class="col-md-3">
+      <%= f.input :name_or_pattern_name_cont, label: 'Project Name or Pattern Name' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :fabric_colour_or_fabric_brand_cont, label: 'Fabric  Brand or Colour' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :status_cont, label: 'Project Status' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :thread_brand_cont, label: 'Thread Brand' %>
+    </div>
+  </div>
+  <div class="row test-center">
+    <%= f.button :submit, "Search", class: "btn btn-success padding" %>
+  </div>
+  <% end %>
+</div>
 <div class="row bootstrap snippets" id="real-estates-columns">
   <% @projects.each do |project| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
@@ -8,12 +29,12 @@
               <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
               <hr>
             </div>
-              <% if project.user.username && !project.user.username.empty? %>
-                <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
-              <% else %>
-                <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %> 
-              <% end %>
-                <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
+            <% if project.user.username && !project.user.username.empty? %>
+              <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
+            <% else %>
+              <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %> 
+            <% end %>
+              <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
           </div>
         </div>
       </div>
