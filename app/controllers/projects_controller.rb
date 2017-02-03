@@ -18,6 +18,7 @@ class ProjectsController < ApplicationController
   def all
     @q = Project.ransack(params[:q])
     @projects = @q.result
+    @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
   end
 
   # GET /projects/1
