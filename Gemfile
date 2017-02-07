@@ -24,6 +24,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'ransack'
 gem "figaro"
 gem "fog"
+gem 'mini_magick', '~> 4.3.1'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
