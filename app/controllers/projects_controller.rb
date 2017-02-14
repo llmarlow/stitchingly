@@ -25,6 +25,8 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = @user.projects.find(params[:id])
+    @updates = @project.updates.order(update_date: :desc)
+    @updates = @updates.paginate(:page => params[:page], :per_page => 12)
   end
 
   # GET /projects/new

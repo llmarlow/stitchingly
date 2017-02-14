@@ -17,6 +17,7 @@
       <% if @project.user == current_user %>
         <%= link_to "Edit", edit_user_project_path(@project.user, @project), class: "btn btn-primary" %>
         <%= link_to "Delete", [@project.user, @project], :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %> 
+        <%= link_to "New Update", new_user_project_update_path(@project.user, @project), class: "btn btn-success" %> 
       <% end %>
     </div>
     <div class="col-md-6">
@@ -44,6 +45,10 @@
             <td>Not Finished</td>
           <% end %>
         </tr>  
+        <tr>
+          <td>Total Hours:</td>
+          <td><%= @project.total_hours %></td>
+        </tr> 
         <tr>
           <td>Pattern Name:</td>
           <td><%= @project.pattern_name %></td>
@@ -80,3 +85,5 @@
     </div>
   </div>
 </div>
+
+<%= render 'updates' %>

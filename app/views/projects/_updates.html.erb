@@ -1,0 +1,24 @@
+<div class="row bootstrap snippets" id="real-estates-columns">
+  <% @updates.each do |update| %>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="panel">
+        <div class="panel-body">
+          <%= image_tag(update.picture, class: "img-responsive") %>
+          <% if update.hours %>
+          <h4 class="text-center"><%= update.hours %> hours on <%= update.update_date.strftime("%b %d, %Y") %></h4>
+          <% else %>
+          <h4 class="text-center"><%= update.update_date.strftime("%b %d, %Y") %></h4>
+          <% end %>
+          <hr>
+          <% if @project.user == current_user %>
+            <%= link_to "Edit", edit_user_project_update_path(@user, @project, update), class: "btn btn-primary" %>
+            <%= link_to "Delete", user_project_update_path(@user, @project, update), :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %> 
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="text-center">
+  <%= will_paginate @updates, renderer: BootstrapPagination::Rails %>
+</div>

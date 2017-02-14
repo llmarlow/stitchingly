@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get '/projects', to: 'projects#all', as: 'projects'
   get '/projects/dashboard', to: 'projects#dashboard', as: 'dashboard'
   resources :users, only: [:index, :show, :all] do
-    resources :projects
+    resources :projects do
+      resources :updates
+    end
   end
 
 end

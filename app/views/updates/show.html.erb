@@ -1,0 +1,23 @@
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= image_tag @update.picture %>
+</p>
+
+
+<p>
+  <strong>Update date:</strong>
+  <%= @update.update_date %>
+</p>
+
+
+<p>
+  <strong>Hours:</strong>
+  <%= @update.hours %>
+</p>
+
+<%= link_to 'Edit', edit_update_path(@update) %> |
+<%= link_to 'Back', updates_path %>
+</div>
