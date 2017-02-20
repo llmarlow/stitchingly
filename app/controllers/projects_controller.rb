@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @user = User.find(params[:user_id])
-    @q = @user.projects.ransack(params[:q])
+    if @user == current_user
+      @q = @user.projects.ransack(params[:q])
+    else
+      @q = @user.projects.notprivate.ransack(params[:q])
+    end
     @projects = @q.result
   end
 
@@ -16,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def all
-    @q = Project.ransack(params[:q])
+    @q = Project.notprivate.ransack(params[:q])
     @projects = @q.result
     @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
   end
@@ -94,6 +98,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :notes, :progress, :status, :user_id, :pattern_name, :pattern_designer, :fabric_brand, :fabric_colour, :fabric_count, :thread_brand, :picture, :start_date, :finish_date)
+      params.require(:project).permit(:name, :notes, :progress, :status, :user_id, :pattern_name, :pattern_designer, :fabric_brand, :fabric_colour, :fabric_count, :thread_brand, :picture, :start_date, :finish_date, :private)
     end
 end

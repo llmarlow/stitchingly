@@ -1,6 +1,10 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <%= link_to "Back", :back, class: "btn btn-default" %>
-  <h1 class="text-center"><%= @project.name %><%= link_to @project.status, "#", class: "btn btn-primary pull-right" %></h1>
+  <% if @project.private == false || @project.user == current_user %>
+  <h1 class="text-center"><%= @project.name %><%= link_to @project.status, "#", class: "btn btn-primary pull-right" %>
+  <% if @project.private == true %>
+  <%= link_to "Private", "#", class: "btn btn-danger pull-right" %></h1>
+  <% end %>
   <div class="row">
     <div class="col-md-4">
       <% if @project.picture? %>
@@ -88,6 +92,9 @@
       </div>
     </div>
   </div>
+  <% else %>
+  <h1>This project is private </h1>
+  <% end %>
 </div>
 
 <%= render 'updates' %>
