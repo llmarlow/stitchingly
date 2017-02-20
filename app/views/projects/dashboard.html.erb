@@ -19,7 +19,11 @@
                 <div class="pull-left">
                   <div class="resp-avatars">
                     <div class="name"><strong><%= project.name %></strong></div>
-                    <%= image_tag(project.picture, class: "img-rounded") %>
+                    <% if project.picture? %>
+                      <%= image_tag(project.picture, class: "img-rounded") %>
+                    <% else %>
+                        <%= image_tag("noimage.jpeg", class: "img-rounded") %>
+                    <% end %>
                   </div>
                 </div>
 
