@@ -1,14 +1,15 @@
 <div class="row">
 <%= render 'sidebar' %>
 <div class="booyah-box col-xs-7 col-xs-offset-1">
-    <h1 class="text-center"><%= params[:brand] %> Threads</h1>
+    <h1 class="text-center"><%= params[:brand] %> <%= params[:type] %> Threads</h1>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
+      <div class="col-md-8 col-md-offset-2">
        <h3 class="text-center">Sort By</h3>
         <table class="table table-bordered table-striped"> 
           <thead> 
             <tr> 
-              <th><%= sort_link(@q, :colour, 'Colour', default_order: :asc) %></th>
+              <th class="text-center"><%= sort_link(@q, :colour, 'Colour', default_order: :asc) %></th>
+              <th class="text-center"><%= sort_link(@q, :flossnumber, 'Number', default_order: :asc) %></th>
             </tr> 
           </thead> 
         </table>
@@ -16,6 +17,7 @@
           <thead>
             <tr>
               <th>Colour</th>
+              <th>Number</th>
               <th class="text-center">Quantity</th>
             </tr>
           </thead>

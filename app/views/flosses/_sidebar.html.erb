@@ -85,7 +85,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
             <span class="glyphicon glyphicon-th"></span>
             Speciality Threads
           </a>
@@ -96,22 +96,22 @@
           <table class="table">
             <tr>
               <td>
-                Kreinik
+                <%= link_to "DMC Light Effects", flosses_path(brand: "DMC", type: "Light Effects") %>
               </td>
             </tr>
             <tr>
               <td>
-                Perle
+                <%= link_to "DMC Stranded Variations", flosses_path(brand: "DMC", type: "Stranded Variations") %>
               </td>
             </tr>
             <tr>
               <td>
-                <%= link_to "DMC Metalic", flosses_path(brand: "DMC", type: "Speciality") %>
+                <%= link_to "DMC Variegated", flosses_path(brand: "DMC", type: "Variegated") %>
               </td>
             </tr>
             <tr>
               <td>
-                DMC Variegated
+                <%= link_to "DMC Coloris", flosses_path(brand: "DMC", type: "Coloris") %>
               </td>
             </tr>
           </table>

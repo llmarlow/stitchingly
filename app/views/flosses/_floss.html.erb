@@ -1,6 +1,7 @@
 <% @flosses.each do |floss| %>
   <tr>
     <td><strong><%= floss.colour %></strong></td>
+    <td><strong><%= floss.flossnumber %></strong></td>
     <% if floss.users.include? current_user %>
       <td class="text-center">
         <% @quantity = floss.user_flosses.where(floss: floss).first %>

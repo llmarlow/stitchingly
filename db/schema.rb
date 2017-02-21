@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220201041) do
+ActiveRecord::Schema.define(version: 20170221110704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "flosses", force: :cascade do |t|
     t.string   "colour"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "brand"
     t.string   "floss_type"
+    t.string   "flossnumber"
   end
 
   create_table "projects", force: :cascade do |t|
