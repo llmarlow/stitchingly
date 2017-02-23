@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @fabric.fabric_type %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @fabric.brand %>
+</p>
+
+<p>
+  <strong>Colour:</strong>
+  <%= @fabric.colour %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @fabric.count %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @fabric.height %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @fabric.width %>
+</p>
+
+<%= link_to 'Edit', edit_fabric_path(@fabric) %> |
+<%= link_to 'Back', fabrics_path %>

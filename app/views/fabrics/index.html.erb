@@ -1,0 +1,36 @@
+<div class="booyah-box">
+<p id="notice"><%= notice %></p>
+<%= link_to "Add Fabric", new_fabric_path, class: "btn btn-success padding" %>
+<h1>Fabrics</h1>
+<%= render 'searchform' %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th><%= sort_link(@q, :brand, 'Brand', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :colour, 'Colour', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :count, 'Count', default_order: :desc) %></th>
+      <th><%= sort_link(@q, :fabric_type, 'Type', default_order: :desc) %></th>
+      <th>Size</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fabrics.each do |fabric| %>
+      <tr>
+        <td><%= fabric.brand %></td>
+        <td><%= fabric.colour %></td>
+        <td><%= fabric.count %></td>
+        <td><%= fabric.fabric_type %></td>
+        <td><%= fabric.height %> inches high by <%= fabric.width %> inches wide</td>
+        <td><%= link_to "Edit", edit_fabric_path(fabric), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Destroy', fabric, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%></td>
+      </tr>   
+    <% end %> 
+  </tbody>
+</table>
+<div class="text-center">
+  <%= will_paginate @fabrics, renderer: BootstrapPagination::Rails %>
+</div>
+</div>

@@ -1,0 +1,27 @@
+<%= search_form_for @q, url: fabrics_path, :builder => SimpleForm::FormBuilder do |f| %>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.input :brand_cont, label: 'Fabric Brand' %>
+  </div>
+   <div class="col-md-4">
+    <%= f.input :colour_cont, label: 'Fabric Colour' %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :count_cont, label: 'Fabric Count' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <%= f.input :fabric_type_cont, label: 'Type (Evenweave, Aida etc)' %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :height_gteq, label: 'Height Greater than (inches)' %>
+  </div>
+  <div class="col-md-4">
+    <%= f.input :width_gteq, label: 'Width Greater than (inches)' %>
+  </div>
+</div>
+<div>
+  <%= f.button :submit, "Search", class: "btn btn-primary padding" %>
+</div>
+<% end %>

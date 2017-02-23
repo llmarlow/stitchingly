@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_user, except: [:new, :all, :dashboard]
   before_action :authenticate_user!, except: [:index, :show]
 
+
   # GET /projects
   # GET /projects.json
   def index

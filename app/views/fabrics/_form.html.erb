@@ -1,0 +1,16 @@
+<%= simple_form_for(@fabric) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :fabric_type, placeholder: 'Aida, Evenweave etc' %>
+    <%= f.input :brand %>
+    <%= f.input :colour %>
+    <%= f.input :count %>
+    <%= f.input :height, placeholder: 'Inches' %>
+    <%= f.input :width, placeholder: 'Inches' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, class: "btn btn-success" %>
+  </div>
+<% end %>
