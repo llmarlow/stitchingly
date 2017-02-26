@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  
+  resources :features do
+    member do
+      put "like", to: "features#upvote"
+      put "dislike", to: "features#downvote"
+    end
+  end
+
   root 'pages#home'
   get '/about', to: 'pages#about', as: 'about'
   devise_for :users 

@@ -25,6 +25,7 @@ gem 'ransack'
 gem "figaro"
 gem "fog"
 gem 'mini_magick', '~> 4.3.1'
+gem 'acts_as_votable', '~> 0.10.0'
 gem 'rails_12factor', group: :production
 
 group :development, :test do
