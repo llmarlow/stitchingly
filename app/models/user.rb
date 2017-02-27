@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :user_flosses, dependent: :destroy
   has_many :flosses, through: :user_flosses
   validates :username, uniqueness: true
+  acts_as_voter
 end

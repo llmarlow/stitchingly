@@ -2,7 +2,6 @@ class ProjectsController < ApplicationController
   before_action :set_user, except: [:new, :all, :dashboard]
   before_action :authenticate_user!, except: [:index, :show]
 
-
   # GET /projects
   # GET /projects.json
   def index
@@ -24,6 +23,18 @@ class ProjectsController < ApplicationController
     @q = Project.notprivate.ransack(params[:q])
     @projects = @q.result
     @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
+  end
+
+  def like
+    @project = Project.find(params[:id])
+    @project.liked_by current_user
+    redirect_to projects_path
+  end
+
+  def dislike
+    @project = Project.find(params[:id])
+    @project.disliked_by current_user
+    redirect_to projects_path
   end
 
   # GET /projects/1

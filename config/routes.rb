@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get '/projects/dashboard', to: 'projects#dashboard', as: 'dashboard'
   resources :users, only: [:index, :show, :all] do
     resources :projects do
+      member do
+        put "like", to: "projects#like"
+        put "dislike", to: "projects#dislike"
+      end
       resources :updates
     end
   end

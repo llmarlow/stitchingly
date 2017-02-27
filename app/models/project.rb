@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   validates :status, presence: true
   validates :name, :uniqueness => {:scope=>:user_id}
   validates :user, presence: true
+  acts_as_votable
   scope :notprivate, -> { where(private: false) }
 
   def email_format

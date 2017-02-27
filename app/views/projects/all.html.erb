@@ -38,7 +38,27 @@
             <% else %>
               <%= link_to project.email_format, user_projects_path(project.user), class: "btn btn-primary" %> 
             <% end %>
-              <%= link_to '<i class="fa fa-heart" aria-hidden="true"> Favourite</i>'.html_safe, "#", class: "btn btn-danger pull-right" %>
+            <% if current_user.liked? project %>
+              <%= link_to  dislike_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart" aria-hidden="true">
+                    <% if project.get_likes.size > 0 %>
+                      <%= project.get_likes.size %>
+                    <% else %>
+                    Like
+                    <% end %>
+                  </i>
+                <% end %>
+            <% else %>
+              <%= link_to  like_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart-o" aria-hidden="true">
+                    <% if project.get_likes.size > 0 %>
+                      <%= project.get_likes.size %>
+                    <% else %>
+                    Like
+                    <% end %>
+                  </i>
+                <% end %>
+            <% end %>
           </div>
         </div>
       </div>
