@@ -8,7 +8,7 @@ class Project < ApplicationRecord
   validates :user, presence: true
   acts_as_votable
   scope :notprivate, -> { where(private: false) }
-  
+  scope :nopicture, -> { where.not(:picture => nil) }
 
   def email_format
     self.user.email.split("@").first

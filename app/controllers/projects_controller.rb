@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   end
 
   def all
-    @q = Project.notprivate.order(updated_at: :desc).ransack(params[:q])
+    @q = Project.notprivate.nopicture.order(updated_at: :desc).ransack(params[:q])
     @projects = @q.result
     @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
   end
