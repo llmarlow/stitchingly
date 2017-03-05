@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'pages#home'
+  resources :sals
   resources :features do
     member do
       put "like", to: "features#upvote"
@@ -7,7 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'pages#home'
   get '/about', to: 'pages#about', as: 'about'
   devise_for :users 
   resources :user_flosses

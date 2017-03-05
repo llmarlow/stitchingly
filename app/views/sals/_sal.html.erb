@@ -1,0 +1,28 @@
+  <div class="col-md-4 col-sm-6 col-xs-12">
+    <div class="panel">
+      <div class="panel-body">
+      <h2 class= "text-center"><%= sal.name %></h2>
+      <hr>
+        <% if sal.picture? %>
+            <%= image_tag(sal.picture, class: "thumbnail") %>
+        <% else %>
+            <%= image_tag("noimage.jpeg", class: "thumbnail") %>
+        <% end %>
+        <div class="title-realestates-columns">
+          <h3 class="text-center"><%= sal.company %></h3>
+          <hr>
+          <% if sal.start_date %>
+            <h4 class="text-center"><%= sal.start_date.strftime("%b %d, %Y") %>
+          <% else %>
+            <h4 class="text-center">Not Started
+          <% end %>
+          <% if sal.end_date && sal.start_date %>
+            - <%= sal.end_date.strftime("%b %d, %Y") %></h4>
+          <% elsif sal.start_date %>
+            - Not Finished</h4>
+          <% end %>
+        </div>    
+      </div>
+    </div>
+  </div>  
+
