@@ -7,9 +7,9 @@ class ProjectsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     if @user == current_user
-      @q = @user.projects.ransack(params[:q])
+      @q = @user.projects.order(updated_at: :desc).ransack(params[:q])
     else
-      @q = @user.projects.notprivate.ransack(params[:q])
+      @q = @user.projects.notprivate.order(updated_at: :desc).ransack(params[:q])
     end
     @projects = @q.result
   end
@@ -20,6 +20,12 @@ class ProjectsController < ApplicationController
   end
 
   def all
+    @q = Project.notprivate.order(updated_at: :desc).ransack(params[:q])
+    @projects = @q.result
+    @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
+  end
+
+  def alls
     @q = Project.notprivate.ransack(params[:q])
     @projects = @q.result
     @projects = @q.result.paginate(:page => params[:page], :per_page => 30)
