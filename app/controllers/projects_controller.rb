@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find(params[:user_id])
     if @user == current_user
       @q = @user.projects.order(updated_at: :desc).ransack(params[:q])
     else
@@ -111,7 +111,7 @@ class ProjectsController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = User.friendly.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

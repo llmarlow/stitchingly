@@ -8,5 +8,9 @@ class User < ApplicationRecord
   has_many :user_flosses, dependent: :destroy
   has_many :flosses, through: :user_flosses
   validates :username, uniqueness: true
+  validates :username, presence: true
+  validates :username, format: { with: /\A[a-z0-9]+\z/ }
   acts_as_voter
+  extend FriendlyId
+  friendly_id :username
 end
