@@ -1,0 +1,8 @@
+<div class="booyah-box col-xs-10 col-xs-offset-1">
+  <h1>All Tags</h1>
+  <ul>
+  <% @tags.each do |tag| %>
+    <li><%= link_to tag.name, tag_path(tag) %></li>
+  <% end %>
+  </ul>
+</div>
