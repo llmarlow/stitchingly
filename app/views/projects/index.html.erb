@@ -39,14 +39,14 @@
               <hr>
             </div>
             <% if project.user == current_user && project.private == true %>
-              <%= link_to "Private", user_projects_path(project.user), class: "btn btn-danger" %>
+              <%= link_to "Private", user_project_path(project.user, project), class: "btn btn-danger" %>
               <%= link_to  '#', class: "btn btn-danger pull-right" do %>
                   <i class="fa fa-heart" aria-hidden="true">
                       <%= project.get_likes.size %>
                   </i>
               <% end %>
             <% elsif project.user == current_user %>
-              <%= link_to "View", user_projects_path(project.user), class: "btn btn-primary" %>
+              <%= link_to "View", user_project_path(project.user, project), class: "btn btn-primary" %>
               <%= link_to  '#', class: "btn btn-danger pull-right" do %>
                   <i class="fa fa-heart" aria-hidden="true">
                     <%= project.get_likes.size %>
