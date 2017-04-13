@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about', as: 'about'
   devise_for :users 
   resources :user_flosses
-  resources :flosses 
+  resources :flosses do
+    member do
+      put "increase", to: "flosses#increase"
+      put "decrease", to: "flosses#decrease"
+    end
+  end
   resources :fabrics
   get '/projects', to: 'projects#all', as: 'projects'
   get '/projects/dashboard', to: 'projects#dashboard', as: 'dashboard'

@@ -10,4 +10,12 @@ class Floss < ApplicationRecord
     return where(floss_type: type) if type
     all
   end
+
+  def user_floss
+    self.user_flosses.where(floss: self).first
+  end
+
+  def user_floss_quantity
+    self.user_floss.floss_quantity
+  end
 end
