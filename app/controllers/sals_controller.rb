@@ -3,6 +3,10 @@ class SalsController < ApplicationController
     @sals = Sal.all
   end
 
+  def show
+    @sal = Sal.find(params[:id])
+  end
+
   def new
     @sal = Sal.new
   end
@@ -51,7 +55,7 @@ class SalsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def sal_params
-      params.require(:sal).permit(:name, :company, :picture, :start_date, :end_date)
+      params.require(:sal).permit(:name, :company, :picture, :start_date, :end_date, :notes, :link)
     end
 
 end
