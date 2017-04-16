@@ -15,7 +15,11 @@
         <% end %>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
+      <% if @sal.link? %>
         <h3 class="text-center">By <%= link_to @sal.company, "http://#{@sal.company_link}"  %></h3>
+      <% else %>
+        <h3 class="text-center">By <%= @sal.company %></h3>
+      <% end %>
         <hr>
         <% if @sal.start_date %>
           <h4 class="text-center"><%= @sal.start_date.strftime("%b %d, %Y") %>
