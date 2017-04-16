@@ -32,7 +32,9 @@
           - Not Finished</h4>
         <% end %>
         </br>
-        <%= @sal.notes.html_safe %>
+        <% if @sal.notes? %>
+          <%= @sal.notes.html_safe %>
+        <% end %>
       </div>
     </div>
   </div>
