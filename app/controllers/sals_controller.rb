@@ -5,6 +5,7 @@ class SalsController < ApplicationController
 
   def show
     @sal = Sal.find(params[:id])
+    @projects = @sal.tag.projects
   end
 
   def new
@@ -55,7 +56,7 @@ class SalsController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def sal_params
-      params.require(:sal).permit(:name, :company, :picture, :start_date, :end_date, :notes, :link)
+      params.require(:sal).permit(:name, :company, :picture, :start_date, :end_date, :notes, :link, :tag_id)
     end
 
 end

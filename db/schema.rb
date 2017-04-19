@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170416175301) do
+ActiveRecord::Schema.define(version: 20170419153902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,8 @@ ActiveRecord::Schema.define(version: 20170416175301) do
     t.string   "picture"
     t.text     "notes"
     t.string   "link"
+    t.integer  "tag_id"
+    t.index ["tag_id"], name: "index_sals_on_tag_id", using: :btree
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -184,6 +186,7 @@ ActiveRecord::Schema.define(version: 20170416175301) do
   add_foreign_key "projects", "users"
   add_foreign_key "quantities", "flosses"
   add_foreign_key "quantities", "users"
+  add_foreign_key "sals", "tags"
   add_foreign_key "taggings", "projects"
   add_foreign_key "taggings", "tags"
   add_foreign_key "user_flosses", "flosses"

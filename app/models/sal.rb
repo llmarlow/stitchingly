@@ -1,6 +1,7 @@
 class Sal < ApplicationRecord
-  validates :name, :company, presence: true
+  validates :name, :company, :tag, presence: true
   validates :name, uniqueness: true
+  belongs_to :tag
   mount_uploader :picture, PictureUploader
 
   def released_on

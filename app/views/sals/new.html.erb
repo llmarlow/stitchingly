@@ -10,6 +10,7 @@
     <%= f.input :start_date, order: [:day, :month, :year] %>
     <%= f.input :end_date, order: [:day, :month, :year] %>
     <%= f.input :link %>
+    <%= f.association :tag %>
     <%= f.input :notes %>
   </div>
 
