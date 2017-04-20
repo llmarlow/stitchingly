@@ -1,4 +1,5 @@
 <div class="row bootstrap snippets" id="real-estates-columns">
+<% if @releases %>
   <% @releases.each do |release| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="panel">
@@ -13,6 +14,7 @@
       </div>
     </div>
   <% end %>
+<% end %>
 </div>
 <div class="text-center">
   <%= will_paginate @releases, renderer: BootstrapPagination::Rails %>
