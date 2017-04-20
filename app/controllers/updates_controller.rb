@@ -42,8 +42,9 @@ class UpdatesController < ApplicationController
   # PATCH/PUT /updates/1
   # PATCH/PUT /updates/1.json
   def update
+    @update = @project.updates.find(params[:id])
     respond_to do |format|
-      if @project.updates.update(update_params)
+      if @update.update(update_params)
         format.html { redirect_to user_project_path(current_user, @project), notice: 'Update was successfully updated.' }
         format.json { render :show, status: :ok, location: @update }
       else
