@@ -1,0 +1,68 @@
+<div class="row bootstrap snippets" id="real-estates-columns">
+<h2 class="text-center">Members Stitching <%= @sal.name %></h2>
+<% if @projects %>
+  <% @projects.each do |project| %>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="panel">
+        <div class="panel-body">
+          <% if project.picture? %>
+            <%= link_to image_tag(project.picture, class: "img-responsive"), user_project_path(project.user, project) %>
+          <% else %>
+            <%= link_to image_tag("noimage.jpeg", class: "img-responsive"), user_project_path(project.user, project) %>
+          <% end %>
+            <div class="title-realestates-columns">
+              <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
+              <% if project.start_date %>
+                  <%= project.start_date.strftime("%b %d, %Y") %> -
+                  <% else %>
+                    Not Started
+                  <% end %>
+                  <% if project.finish_date %>
+                    <%= project.finish_date.strftime("%b %d, %Y") %> 
+                  <% end %>
+              <hr>
+            </div>
+            <% if project.user == current_user && project.private == true %>
+              <%= link_to "Private", user_project_path(project.user, project), class: "btn btn-danger" %>
+              <%= link_to  '#', class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart" aria-hidden="true">
+                      <%= project.get_likes.size %>
+                  </i>
+              <% end %>
+            <% elsif project.user == current_user %>
+              <%= link_to "View", user_project_path(project.user, project), class: "btn btn-primary" %>
+              <%= link_to  '#', class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart" aria-hidden="true">
+                    <%= project.get_likes.size %>
+                  </i>
+              <% end %>
+            <% else %>
+                <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>
+              <% if current_user.liked? project %>
+                <%= link_to  dislike_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart" aria-hidden="true">
+                    <% if project.get_likes.size > 0 %>
+                      <%= project.get_likes.size %>
+                    <% else %>
+                    Like
+                    <% end %>
+                  </i>
+                <% end %>
+              <% else %>
+                <%= link_to  like_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
+                  <i class="fa fa-heart-o" aria-hidden="true">
+                    <% if project.get_likes.size > 0 %>
+                      <%= project.get_likes.size %>
+                    <% else %>
+                    Like
+                    <% end %>
+                  </i>
+                <% end %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% end %>
+</div>

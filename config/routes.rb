@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+  
   root 'pages#home'
-  resources :sals
+  resources :sals do
+    resources :releases
+  end
   resources :tags
   resources :features do
     member do

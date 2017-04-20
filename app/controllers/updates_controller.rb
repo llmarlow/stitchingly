@@ -2,6 +2,7 @@ class UpdatesController < ApplicationController
   before_action :set_project
   before_action :authenticate_user!, except: [:index, :show]
 
+
   # GET /updates
   # GET /updates.json
   def index
