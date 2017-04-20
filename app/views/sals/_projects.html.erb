@@ -1,6 +1,6 @@
+<% if @projects.exists? %>
 <div class="row bootstrap snippets" id="real-estates-columns">
-<% if @projects %>
-  <h2 class="text-center">Members Stitching <%= @sal.name %></h2>
+<h2>Members stitching <%= @sal.name %></h2>
   <% @projects.each do |project| %>
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="panel">
@@ -64,5 +64,5 @@
         </div>
       </div>
   <% end %>
-<% end %>
 </div>
+<% end %>
