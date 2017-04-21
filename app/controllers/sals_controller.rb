@@ -6,7 +6,7 @@ class SalsController < ApplicationController
   def show
     @sal = Sal.find(params[:id])
     @projects = @sal.tag.projects
-    @releases = @sal.releases
+    @releases = @sal.releases.order(created_at: :desc)
     @releases = @releases.paginate(:page => params[:page], :per_page => 12)
   end
 
