@@ -6,10 +6,6 @@
         <div class="panel-body">
           <h2 class="text-center"><%= release.name %></h2></br>
           <%= image_tag(release.picture, class: "img-responsive") %>
-          <%# if @release.user.id == current_user %>
-            <%= link_to "Edit", edit_sal_release_path(@sal, release), class: "btn btn-primary" %>
-            <%= link_to "Delete", sal_release_path(@sal, release), :confirm => "Are you sure?", :method => :delete, class: "btn btn-danger" %> 
-          <%# end %>
         </div>
       </div>
     </div>
