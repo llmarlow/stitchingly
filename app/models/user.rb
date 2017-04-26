@@ -13,4 +13,10 @@ class User < ApplicationRecord
   acts_as_voter
   extend FriendlyId
   friendly_id :username
+
+  def social_link(link)
+    uri = URI("#{link}")
+    path = uri.path
+    path.delete! '/'
+  end
 end

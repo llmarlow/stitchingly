@@ -1,66 +1,40 @@
 <div class="container">
   <div class="row">
-    <h1 class="text-center"><%= @user.username.capitalize %></h1>
-    <p class="text-center">Member since: <%= @user.created_at.strftime("%b %d, %Y") %></p>
-  <div>
-  <div class="row">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-      <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Projects</a></li>
-      <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Friends</a></li>
-      <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-    </ul>
+    <div class="col-md-3">
+      </br>
+      <h2 class="text-center"><%= @user.username.capitalize %></h2>
+      <hr>
+      <p class="text-center">Member since: <%= @user.created_at.strftime("%b %d, %Y") %></p>
+      <h5 class="text-center">
+      <% if @user.beta_tester? %>
+        <span class="label label-info">Beta Tester</span>
+      <% end %>
+      <% if @user.premium_member? %>
+        <span class="label label-warning">Premium Member</span>
+      <% end %>
+      </h5>
+      <hr>
+      <% if @user.bio %>
+      <p><%= @user.bio %></p>
+      <% end %>
+      <hr>
+      <% if @user.youtube.present? %>
+      <%= link_to '<i class="fa fa-youtube fa-2x"></i>'.html_safe, @user.youtube %>
+      <% end %>
+      <% if @user.instagram.present? %>
+      <%= link_to '<i class="fa fa-instagram fa-2x"></i>'.html_safe, @user.instagram %>
+      <% end %>
+      <% if @user.website.present? %>
+      <%= link_to '<i class="fa fa-external-link fa-2x"></i>'.html_safe, @user.website %>
+      <% end %>
+      <hr>
+      <% if @user.birthday.present? %>
+      <p>Birthday: <%= @user.birthday.strftime("%B %d") %></p>
+      <% end %>
     </div>
-      <!-- Tab panes -->
-      <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="profile">
-          <div class="container">
-            <div class="row">
-              <% @user.projects.each do |project| %>
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="panel">
-                    <div class="panel-body">
-                    <% if project.picture? %>
-                        <%= link_to image_tag(project.picture, class: "img-responsive"), user_project_path(project.user, project) %>
-                    <% else %>
-                        <%= link_to image_tag("noimage.jpeg", class: "img-responsive"), user_project_path(project.user, project) %>
-                    <% end %>
-                        <div class="title-realestates-columns">
-                          <h4><%= link_to project.name, user_project_path(project.user, project) %><%= link_to project.status, "#", class: "btn btn-primary pull-right" %></h4>
-                          <hr>
-                        </div>
-                        <%= link_to project.user.username, user_projects_path(project.user), class: "btn btn-primary" %>         
-                        <% if current_user.liked? project %>
-                          <%= link_to  dislike_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
-                              <i class="fa fa-heart" aria-hidden="true">
-                                <% if project.get_likes.size > 0 %>
-                                  <%= project.get_likes.size %>
-                                <% else %>
-                                Like
-                                <% end %>
-                              </i>
-                            <% end %>
-                        <% else %>
-                          <%= link_to  like_user_project_path(project.user, project), method: :put, class: "btn btn-danger pull-right" do %>
-                              <i class="fa fa-heart-o" aria-hidden="true">
-                                <% if project.get_likes.size > 0 %>
-                                  <%= project.get_likes.size %>
-                                <% else %>
-                                Like
-                                <% end %>
-                              </i>
-                            <% end %>
-                        <% end %>
-                      </div>
-                    </div>
-                  </div>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="messages">...</div>
-        <div role="tabpanel" class="tab-pane" id="settings">...</div>
-      </div>
+      <!-- Nav tabs -->
+    <div class="col-md-8">
+      <h1></h1>
     </div>
   </div>
 </div>

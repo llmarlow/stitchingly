@@ -7,6 +7,12 @@
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
       <%= f.input :username, placeholder: 'lowercase with no spaces or special characters' %>
+      <%= f.input :name %>
+      <%= f.input :birthday, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' }, start_year: Date.today.year - 13, end_year: Date.today.year - 110, hint: "Year will not be displayed but is needed to display your birthday" %>
+       <%= f.input :bio, placeholder: 'Tell us a little about yourself' %>
+      <%= f.input :instagram, placeholder: 'link to your instagram profile. Include the http://' %>
+      <%= f.input :youtube, placeholder: 'link to your youtube/flosstube channel. Include the http://' %>
+      <%= f.input :website, placeholder: 'link to your website. Include the http://' %>
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
     </div>
