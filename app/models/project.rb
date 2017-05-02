@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
   belongs_to :user
   has_many :updates, dependent: :destroy
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
   mount_uploader :picture, PictureUploader
   validates :name, presence: true
