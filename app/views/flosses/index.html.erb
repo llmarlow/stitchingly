@@ -8,8 +8,9 @@
         <table class="table table-bordered table-striped"> 
           <thead> 
             <tr> 
-              <th class="text-center"><%= sort_link(@q, :colour, 'Colour', default_order: :asc) %></th>
-              <th class="text-center"><%= sort_link(@q, :flossnumber, 'Number', default_order: :asc) %></th>
+              <th class="text-center">
+              <%= link_to "Colour", params.merge(sort_param: 'colour').permit! %></th>
+              <th class="text-center"><%= link_to "Number", params.merge(sort_param: 'number').permit! %></th>
             </tr> 
           </thead> 
         </table>
@@ -27,9 +28,7 @@
             </div>
           </tbody>
         </table>
-        <div class="text-center">
-          <%= will_paginate @flosses, renderer: BootstrapPagination::Rails %>
-        </div>
+        
       </div>
     </div>
 </div>

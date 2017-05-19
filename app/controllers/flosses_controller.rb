@@ -3,8 +3,11 @@ class FlossesController < ApplicationController
   
   def index
     @flosses = Floss.by_brand_and_type(params[:brand], params[:type])
-    @q = @flosses.ransack(params[:q])
-    @flosses = @q.result.paginate(:page => params[:page], :per_page => 60) 
+    if params[:sort_param] == "colour"
+      @flosses = @flosses.order(colour: :desc)
+    elsif params[:sort_param] == "number"
+      @flosses = @flosses.sort { |a, b| a.flossnumber.to_i <=> b.flossnumber.to_i }
+    end 
   end
 
   def increase
@@ -19,3 +22,4 @@ class FlossesController < ApplicationController
     redirect_to flosses_path
   end
 end
+
