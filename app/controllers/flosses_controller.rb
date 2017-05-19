@@ -13,13 +13,14 @@ class FlossesController < ApplicationController
   def increase
     user_floss = UserFloss.find(params[:user_floss][:user_floss_id])
     user_floss.increase(user_floss)
-    redirect_to flosses_path
+    flash[:notice] = 'Quantity successfully updated!'
+    redirect_to :back
   end
 
   def decrease
     user_floss = UserFloss.find(params[:user_floss][:user_floss_id])
     user_floss.decrease(user_floss)
-    redirect_to flosses_path
+    redirect_to :back
   end
 end
 
