@@ -91,16 +91,6 @@ ActiveRecord::Schema.define(version: 20170426144313) do
     t.index ["user_id"], name: "index_projects_on_user_id", using: :btree
   end
 
-  create_table "quantities", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "floss_id"
-    t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["floss_id"], name: "index_quantities_on_floss_id", using: :btree
-    t.index ["user_id"], name: "index_quantities_on_user_id", using: :btree
-  end
-
   create_table "releases", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
@@ -201,8 +191,6 @@ ActiveRecord::Schema.define(version: 20170426144313) do
   end
 
   add_foreign_key "projects", "users"
-  add_foreign_key "quantities", "flosses"
-  add_foreign_key "quantities", "users"
   add_foreign_key "releases", "sals"
   add_foreign_key "sals", "tags"
   add_foreign_key "taggings", "projects"
