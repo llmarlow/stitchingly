@@ -9,7 +9,7 @@ class FlossesController < ApplicationController
     end
     @flosses = @flosses.sort { |a, b| a.flossnumber.to_i <=> b.flossnumber.to_i }
     if params[:sort_param] == "colour"
-      @flosses = @flosses.order(colour: :desc)
+      @flosses = @flosses.order(colour: :asc)
     elsif params[:sort_param] == "number"
       @flosses = @flosses.sort { |a, b| a.flossnumber.to_i <=> b.flossnumber.to_i }
     end 
