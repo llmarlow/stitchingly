@@ -2,7 +2,12 @@ class FlossesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @flosses = Floss.by_brand_and_type(params[:brand], params[:type])
+    if params[:brand] || params[:type]
+      @flosses = Floss.by_brand_and_type(params[:brand], params[:type])
+    else
+      @flosses = Floss.by_brand_and_type("DMC", "Stranded Cotton")
+    end
+    @flosses = @flosses.sort { |a, b| a.flossnumber.to_i <=> b.flossnumber.to_i }
     if params[:sort_param] == "colour"
       @flosses = @flosses.order(colour: :desc)
     elsif params[:sort_param] == "number"
