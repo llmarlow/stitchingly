@@ -1,6 +1,10 @@
 class SalsController < ApplicationController
   def index
-    @sals = Sal.all
+    @sals = Sal.where("end_date >= ?", Time.current)
+  end
+
+  def archive
+    @sals = Sal.where("end_date <= ?", Time.current)
   end
 
   def show

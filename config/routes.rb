@@ -2,7 +2,10 @@ Rails.application.routes.draw do
 
   
   root 'pages#home'
-  resources :sals do
+  resources :sals do 
+    collection do
+      get 'archive'
+    end
     resources :releases
   end
   resources :tags

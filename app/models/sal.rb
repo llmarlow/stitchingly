@@ -13,4 +13,5 @@ class Sal < ApplicationRecord
   def company_link
     self.link.split('/').first
   end
+
 end
