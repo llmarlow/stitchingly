@@ -3,6 +3,17 @@
 #
 # Examples:
 #
+require 'securerandom'
+
+for @i in (1..100)
+  @colour = SecureRandom.random_number(100).to_s
+  @brand = "DMC"
+  @floss_type = "Stranded"
+  @flossnumber = SecureRandom.random_number(100)
+  Floss.create(colour: @colour, brand: @brand, floss_type: @floss_type, flossnumber: @floss_number)
+  if @i % 10 == 0 then puts @i.to_s + " flosses created."end
+end
+=begin
 Floss.create([{ colour: 'Ecru' }, 
               { colour: 'B5200' },
               { colour: 'White' },
@@ -469,3 +480,4 @@ Floss.create([{ colour: '3820' },
               { colour: '3865' },
               { colour: '3866' }
               ])
+=end

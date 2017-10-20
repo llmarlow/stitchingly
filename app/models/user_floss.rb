@@ -12,8 +12,10 @@ class UserFloss < ApplicationRecord
   end
 
   def decrease(user_floss)
-    quantity = user_floss.floss_quantity
-    user_floss.floss_quantity -= 1
+    @quantity = user_floss.floss_quantity
+    @quantity = @quantity - 1
+    if @quantity == -1 then @quantity = 0 end
+    user_floss.floss_quantity = @quantity
     user_floss.save
   end
 

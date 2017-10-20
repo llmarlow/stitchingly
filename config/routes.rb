@@ -38,4 +38,6 @@ Rails.application.routes.draw do
     end
   end
 
+  get "/flosses/increase_with_jquery/:id", to: "flosses#increase_with_jquery"
+  get "/flosses/decrease_with_jquery/:id", to: "flosses#decrease_with_jquery"
 end

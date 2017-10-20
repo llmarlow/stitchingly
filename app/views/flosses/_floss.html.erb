@@ -2,16 +2,30 @@
   <tr>
     <td><strong><%= floss.colour %></strong></td>
     <td><strong><%= floss.flossnumber %></strong></td>
-    <% if floss.users.include? current_user %>
       <td class="text-center">
-        <%= link_to '<i class="fa fa-minus"></i>'.html_safe, decrease_floss_path(floss, :user_floss => { :floss_quantity => floss.user_floss_quantity, :user_floss_id => floss.user_floss}), :method => :put, class: "btn btn-success btn-xs" %>
-        <%= floss.user_floss_quantity %>
-        <%= link_to '<i class="fa fa-plus"></i>'.html_safe, increase_floss_path(floss, :user_floss => { :floss_quantity => floss.user_floss_quantity, :user_floss_id => floss.user_floss}), :method => :put, class: "btn btn-success btn-xs" %>
+        <div href="#" id="decrease_user_floss_quantity_<%=floss.id%>" class="btn btn-success btn-xs decrease_user_floss_quantity"><i class="fa fa-minus"></i></div>
+        <span id="display_user_floss_quantity_<%=floss.id%>" class="display_user_floss_quantity">
+          <% if floss.user_floss != nil then %>
+      <%= floss.user_floss_quantity%>
+          <% else %>
+      0
+          <% end%>
+  </span>
+        <div href="#" id="increase_user_floss_quantity_<%=floss.id%>" class="btn btn-success btn-xs increase_user_floss_quantity"><i class="fa fa-plus"></i></div>
       </td>
-    <% else %>
-      <td class="text-center">
-        <%= link_to '<i class="fa fa-plus"></i>'.html_safe, user_flosses_path(:user_floss => {:user_id => current_user.id, :floss_id => floss.id, :floss_quantity => 1}), :method => :post, class: "btn btn-success btn-xs" %>
-      </td>
-    <% end %>
   </tr>   
 <% end %> 
+
+<script>
+  $(".increase_user_floss_quantity").click(function(){
+    var id = $(this).attr('id').substring(29);
+    var url_to_load = "/flosses/increase_with_jquery/" + String(id); 
+    $("#display_user_floss_quantity_" + String(id)).load(url_to_load);    
+  });
+  $(".decrease_user_floss_quantity").click(function(){
+    var id = $(this).attr('id').substring(29);
+    var url_to_load = "/flosses/decrease_with_jquery/" + String(id) ;
+    $("#display_user_floss_quantity_" + String(id)).load(url_to_load);    
+  });  
+
+</script>
