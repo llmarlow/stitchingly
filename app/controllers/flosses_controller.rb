@@ -23,7 +23,8 @@ class FlossesController < ApplicationController
 
   def increase_with_jquery
     @floss_id = params[:id]
-    user_floss = UserFloss.find_by_floss_id(@floss_id)
+    @floss = Floss.find_by_id(@floss_id)
+    user_floss = UserFloss.get_userfloss_by_user_and_floss(current_user, @floss)
     @quantity = 1
     if user_floss != nil then 
       user_floss.increase(user_floss)
@@ -46,7 +47,8 @@ class FlossesController < ApplicationController
 
   def decrease_with_jquery
     @floss_id = params[:id]
-    user_floss = UserFloss.find_by_floss_id(@floss_id)
+    @floss = Floss.find_by_id(@floss_id)
+    user_floss = UserFloss.get_userfloss_by_user_and_floss(current_user, @floss)
     @quantity = 0    
     if user_floss != nil then 
       user_floss.decrease(user_floss)

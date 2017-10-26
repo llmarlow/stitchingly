@@ -4,13 +4,7 @@
     <td><strong><%= floss.flossnumber %></strong></td>
       <td class="text-center">
         <div href="#" id="decrease_user_floss_quantity_<%=floss.id%>" class="btn btn-success btn-xs decrease_user_floss_quantity"><i class="fa fa-minus"></i></div>
-        <span id="display_user_floss_quantity_<%=floss.id%>" class="display_user_floss_quantity">
-          <% if floss.user_floss != nil then %>
-      <%= floss.user_floss_quantity%>
-          <% else %>
-      0
-          <% end%>
-  </span>
+        <span id="display_user_floss_quantity_<%=floss.id%>" class="display_user_floss_quantity"><%= UserFloss.get_userfloss_quantity_by_user_and_floss(current_user, floss)%></span>
         <div href="#" id="increase_user_floss_quantity_<%=floss.id%>" class="btn btn-success btn-xs increase_user_floss_quantity"><i class="fa fa-plus"></i></div>
       </td>
   </tr>   
@@ -20,11 +14,13 @@
   $(".increase_user_floss_quantity").click(function(){
     var id = $(this).attr('id').substring(29);
     var url_to_load = "/flosses/increase_with_jquery/" + String(id); 
+    //alert(url_to_load);
     $("#display_user_floss_quantity_" + String(id)).load(url_to_load);    
   });
   $(".decrease_user_floss_quantity").click(function(){
     var id = $(this).attr('id').substring(29);
     var url_to_load = "/flosses/decrease_with_jquery/" + String(id) ;
+    //alert(url_to_load);
     $("#display_user_floss_quantity_" + String(id)).load(url_to_load);    
   });  
 

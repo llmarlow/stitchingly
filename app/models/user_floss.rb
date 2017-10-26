@@ -19,4 +19,24 @@ class UserFloss < ApplicationRecord
     user_floss.save
   end
 
+  def self.get_userfloss_by_user_and_floss(user, floss)
+    @return = nil
+    if user != nil and floss != nil then
+      @return = UserFloss.where(:user => user, :floss => floss).first
+    end
+    return @return
+  end
+
+  def self.get_userfloss_quantity_by_user_and_floss(user, floss)
+    @return = 0
+    if user != nil and floss != nil then
+      @userfloss = UserFloss.where(:user => user, :floss => floss).first
+      if @userfloss == nil then @return = 0 end
+      if @userfloss != nil then 
+        @return = @userfloss.floss_quantity 
+      end
+    end
+    return @return
+  end
+
 end
