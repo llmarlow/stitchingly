@@ -1,4 +1,5 @@
 <%= link_to "Past SALs", archive_sals_path, class: "btn btn-success padding btn-lg" %>
+<%=  mail_to "sarah@stitchingly.com", "Suggest a New SAL", subject: "Suggest a New SAL", class: "btn btn-default padding btn-lg" %>
 <div class="row bootstrap snippets" id="real-estates-columns">
   <%= render @sals %>
 </div>
