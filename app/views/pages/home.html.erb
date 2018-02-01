@@ -1,25 +1,28 @@
 
 <% if user_signed_in? %>
-<div class="booyah-box col-xs-10 col-xs-offset-1">
-  <div class="row">
-    <div class="col-sm-6">
-      <% if current_user.projects.count > 0 %>
-        <h2>I have <%= current_user.projects.count %> Projects</h2>
-        <%= link_to "My Projects", user_projects_path(current_user), class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to "New Project", new_user_project_path(current_user), class: "btn btn-success" %>
-      <% end %>
-    </div>
-    <div class="col-sm-6">
-      <% if current_user.user_flosses.count > 0 %>
-        <h2>I have <%= current_user.user_flosses.count %> Flosses in my stash</h2>
-        <%= link_to "My Floss", flosses_path, class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to "Add some Floss", flosses_path, class: "btn btn-success" %>
-      <% end %>
-    </div>
+  <br />
+  <div class="col-xs-10 col-xs-offset-1 text-center">
+    <%= link_to image_tag('stitchinglypatreon.jpg', :class => "img-thumbnail img-responsive img-center"), "https://www.patreon.com/stitchingly" %>
+    </p>
+    <p>Don't forget that in order to keep Stitchingly going and to bring you the very best inventory we need help! We have our own dedicated page at https://www.patreon.com/stitchingly where you can pledge an amount to help us keep Stitchingly running and to bring new features that you all keep asking for!
+    <br/>
+    Thanks so much for your support!</p>
+    <h2>Click here to support us <%= link_to "here", "https://www.patreon.com/stitchingly" %></h2>
+    <br /><br />
+    <h2>Join us for our Year of Finishes Event</h2>
+    <br />
+    <p>Feeling like you never finish a project?<br/>
+      Do you have a shameful pile of WIP'S?<br/>
+      UFO's a plenty?<br/>
+      BAP avoidance?<br/>
+      Too many PHD's?!<br/>
+    </p>
+    <p>(Yes I did have fun with those acronym's ;-) (cred. Kate Worthington for the list)<br/>
+      Then dig them out and make a plan! Make 2018 your year of finishes. Let Stitchingly help you finish those long over due projects. Upload each project to the projects dashboard and keep updating your progress!</p>
+    <p>Lets turn those WIP into FFO's!</p>
+    <h2>Join our event on FB <%= link_to "here", "https://www.facebook.com/events/666107580445281/" %></h2>
+    <br /><br />
   </div>
-</div>
 <% else %>
 <div class="hero">
   <br />
