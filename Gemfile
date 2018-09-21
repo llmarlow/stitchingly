@@ -28,6 +28,7 @@ gem 'mini_magick', '~> 4.3.1'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'friendly_id', '~> 5.1'
 gem 'rails_12factor', group: :production
+gem 'sprockets', '~>3.7.2'
 
 group :development, :test do
   gem 'byebug', platform: :mri
