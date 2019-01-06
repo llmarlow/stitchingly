@@ -8,8 +8,8 @@
     <%= f.input :private %>
     <%= f.input :picture %>
     <%= f.input :status, collection: ['Wishlist', 'Owned', 'Chart Only', ' Partially Kitted', 'Fully Kitted', 'WIP', 'Finished', 'UFO', 'FFO'], prompt: "Select a Status" %>
-    <%= f.input :start_date, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
-    <%= f.input :finish_date, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
+    <%= f.input :start_date, start_year: Date.today.year - 30, end_year: Date.today.year, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
+    <%= f.input :finish_date, start_year: Date.today.year - 30, end_year: Date.today.year, order: [:day, :month, :year], :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year' } %>
     <%= f.input :progress, placeholder: '% Complete' %>
     <%= f.input :pattern_name %>
     <%= f.input :pattern_designer %>
