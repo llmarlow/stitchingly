@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   
+  resources :designers
   root 'pages#home'
   resources :sals do 
     collection do

@@ -1,0 +1,16 @@
+<%=  mail_to "sarah@stitchingly.com", "Suggest a New Designer", subject: "Suggest a New Designer", class: "btn btn-default padding btn-lg" %>
+
+<div class="row bootstrap snippets" id="real-estates-columns">
+  <% @designers.each do |designer| %>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="panel">
+        <div class="panel-body">
+            <h2><%= designer.name %></h2>
+            <hr>
+            <%= link_to "Website", "http://#{designer.website}", class: "btn btn-success pull-right", target: :_blank %>
+            <p><%= designer.description %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
