@@ -24,8 +24,20 @@
       <% if @user.instagram.present? %>
       <%= link_to '<i class="fa fa-instagram fa-2x"></i>'.html_safe, @user.instagram %>
       <% end %>
+      <% if @user.twitter.present? %>
+      <%= link_to '<i class="fa fa-twitter fa-2x"></i>'.html_safe, @user.twitter %>
+      <% end %>
+      <% if @user.twitch.present? %>
+      <%= link_to '<i class="fa fa-twitch fa-2x"></i>'.html_safe, @user.twitch %>
+      <% end %>
       <% if @user.website.present? %>
       <%= link_to '<i class="fa fa-external-link fa-2x"></i>'.html_safe, @user.website %>
+      <% end %>
+      <% if @user.blog.present? %>
+      <%= link_to '<i class="fa fa-pencil-square-o fa-2x"></i>'.html_safe, @user.blog %>
+      <% end %>
+      <% if @user.shop.present? %>
+      <%= link_to '<i class="fa fa-shopping-cart fa-2x"></i>'.html_safe, @user.shop %>
       <% end %>
       <hr>
       <% if @user.birthday.present? %>

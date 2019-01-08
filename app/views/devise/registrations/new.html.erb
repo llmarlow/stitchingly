@@ -12,7 +12,12 @@
        <%= f.input :bio, placeholder: 'Tell us a little about yourself' %>
       <%= f.input :instagram, placeholder: 'link to your instagram profile. Include the http://' %>
       <%= f.input :youtube, placeholder: 'link to your youtube/flosstube channel. Include the http://' %>
+      <%= f.input :twitch, placeholder: 'link to your twitch profile. Include the http://' %>
+      <%= f.input :twitter, placeholder: 'link to your twitter profile. Include the http://' %>
       <%= f.input :website, placeholder: 'link to your website. Include the http://' %>
+      <%= f.input :blog, placeholder: 'link to your blog. Include the http://' %>
+      <%= f.input :shop, placeholder: 'link to your shop. Include the http://' %>
+
       <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       <%= f.input :password_confirmation, required: true %>
     </div>
