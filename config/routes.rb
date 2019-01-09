@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   end
   resources :tags
   resources :features do
+    collection do
+      get 'completed'
+    end
     member do
       put "like", to: "features#upvote"
       put "dislike", to: "features#downvote"

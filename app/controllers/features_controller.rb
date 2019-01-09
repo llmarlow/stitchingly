@@ -5,7 +5,11 @@ class FeaturesController < ApplicationController
   # GET /features
   # GET /features.json
   def index
-    @features = Feature.all
+    @features = Feature.where(completed: false)
+  end
+
+  def completed
+    @features = Feature.where(completed: true)
   end
 
   # GET /features/1

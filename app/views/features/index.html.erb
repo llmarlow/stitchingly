@@ -3,27 +3,11 @@
 <p>
 To keep track of everyones suggested features and the order they should be created in you can now vote for the features you would like built next. Features that have the highest score will be next in line to be created. I figured this was the fairest way to tackle it and prevent me from getting overwhelmed. I will work my way down the list. If you want a feature to be built then just click on the upvote icon ^ on the top left of every feature request. Clicking on view will eventually show you any comments and aditional information about each feature request. Thank you for making this site great :-)
 </p>
-<% @features.each do |feature| %>
-<div class="row">
-  <div class="col-xs-2">
-    <%= link_to '<i class="fa fa-chevron-up fa-2x"></i>'.html_safe, like_feature_path(feature), method: :put %>
-    <p class="padding"><strong><%= feature.votes_for.size %></strong></p>
-          <%= link_to '<i class="fa fa-chevron-down fa-2x"></i>'.html_safe, dislike_feature_path(feature), method: :put %>
-  </div>
-  <div class="col-xs-8">
-    <div class="row">
-      <h3 class="text-center"><strong><%= feature.title %></strong></h3>
-    </div>
-    <div class="row">
-      <p><%= feature.description %></p>
-    </div>
-    <div class="row">
-      <%= link_to "View", feature_path(feature), class: "btn btn-primary pull-right" %>
-    </div>
-  </div>
-</div>
-<hr>
-<% end %>
+
+<%= link_to "View Completed Features", completed_features_path, class: "btn btn-success padding" %>
+
+<%= render @features %>
+
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
