@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_user, except: [:new, :all, :dashboard]
+  before_action :set_user, except: [:new, :all, :dashboard, :archive]
   before_action :authenticate_user!, except: [:index, :show]
 
   # GET /projects
@@ -16,7 +16,12 @@ class ProjectsController < ApplicationController
 
   def dashboard
     @user = current_user
-    @projects = @user.projects.all
+    @projects = @user.projects.where(:finish_date => nil)
+  end
+
+  def archive
+    @user = current_user
+    @projects = @user.projects.where.not(:finish_date => nil)
   end
 
   def all

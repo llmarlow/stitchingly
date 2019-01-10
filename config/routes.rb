@@ -3,13 +3,16 @@ Rails.application.routes.draw do
   
   resources :designers
   root 'pages#home'
+
   resources :sals do 
     collection do
       get 'archive'
     end
     resources :releases
   end
+
   resources :tags
+
   resources :features do
     collection do
       get 'completed'
@@ -32,6 +35,7 @@ Rails.application.routes.draw do
   resources :fabrics
   get '/projects', to: 'projects#all', as: 'projects'
   get '/projects/dashboard', to: 'projects#dashboard', as: 'dashboard'
+  get '/projects/dashboard/archive', to: 'projects#archive', as: 'archive'
   resources :users, only: [:index, :show, :all] do
     resources :projects do
       member do

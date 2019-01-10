@@ -1,7 +1,6 @@
-      <div class="row">
-        <div class="col-lg-12">
-          <%= link_to "New Project", new_user_project_path(current_user), class: "btn btn-success padding" %>
-          <%= link_to "Archive", archive_path, class: "btn btn-default padding pull-right" %>
+<h1>Archive <%= link_to "Project Dashboard", dashboard_path, class: "btn btn-default padding pull-right" %></h1>
+    <div class="row">
+        <div class="col-lg-12"> 
           <div class="content-box project-wrapper">
           <% @projects.each do |project | %>
             <div class="project-item">
