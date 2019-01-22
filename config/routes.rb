@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   get '/projects', to: 'projects#all', as: 'projects'
   get '/projects/dashboard', to: 'projects#dashboard', as: 'dashboard'
   get '/projects/dashboard/archive', to: 'projects#archive', as: 'archive'
+  get '/projects/dashboard/wishlist', to: 'projects#wishlist', as: 'wishlist'
+  get '/projects/dashboard/all', to: 'projects#dashboardall', as: 'dashboardall'
   resources :users, only: [:index, :show, :all] do
     resources :projects do
       member do

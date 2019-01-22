@@ -11,6 +11,8 @@ class Project < ApplicationRecord
   acts_as_votable
   scope :notprivate, -> { where(private: false) }
   scope :nopicture, -> { where.not(:picture => nil) }
+  scope :started, -> { where.not(:start_date => nil) }
+  scope :notfinished, -> { where(:finish_date => nil) }
 
   def email_format
     self.user.email.split("@").first
